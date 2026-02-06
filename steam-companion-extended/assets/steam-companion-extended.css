@@ -1,0 +1,1160 @@
+/* ================= FONT IMPORT ================= */
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn/Vazirmatn-font-face.css');
+
+/* APPLY FONT TO ENTIRE SITE/WRAPPER */
+body, .scx-wrapper, input, textarea, select, button {
+    font-family: 'Vazirmatn', 'Inter', system-ui, sans-serif;
+}
+
+.scx-wrapper{
+    background: linear-gradient(135deg,#050b18,#08142a,#0d1c3a);
+    padding:32px;
+    border-radius:22px;
+    color:#e6eeff;
+    font-family: Inter, system-ui;
+    box-shadow:0 20px 60px rgba(0,0,0,.6);
+}
+
+/* ================= HEADER ================= */
+
+.scx-header-card{
+    display:flex;
+    align-items:center;
+    gap:26px;
+    padding:28px;
+    border-radius:22px;
+
+    background: linear-gradient(135deg,#0d1c36,#152a52);
+    box-shadow:
+        inset 0 0 0 1px rgba(120,160,255,.08),
+        0 20px 50px rgba(0,0,0,.5);
+
+    margin-bottom:28px;
+}
+
+/* AVATAR */
+
+.scx-avatar-wrap{
+    width:110px!important;
+    height:110px!important;
+    border-radius:50%!important;
+    padding:4px!important;
+    background: linear-gradient(135deg,#4f8cff,#7d5cff,#a55cff)!important;
+    box-shadow:
+        0 0 25px rgba(90,140,255,.6),
+        0 0 60px rgba(140,90,255,.35)!important;
+}
+
+.scx-avatar-wrap img{
+    width:100%!important;
+    height:100%!important;
+    border-radius:50%!important;
+}
+
+/* HEADER TEXT */
+
+.scx-header-info h2{
+    font-size:34px;
+    font-weight:700;
+    letter-spacing:.5px;
+    margin-bottom:12px;
+}
+
+.scx-badges{
+    display:flex;
+    gap:10px;
+    margin-bottom:10px;
+}
+
+.scx-badge{
+    padding:6px 14px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.scx-badge.pro{
+    background:linear-gradient(135deg,#ff9f3c,#ff6a00);
+    color:#fff;
+}
+
+.scx-badge.level{
+    background:#1b2f55;
+}
+
+.scx-profile-link{
+    color:#8ec7ff;
+    font-size:14px;
+    text-decoration:none;
+}
+
+/* ================= STATS GRID ================= */
+
+.scx-stats-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:22px;
+    margin-bottom:34px;
+}
+
+.scx-stat{
+    padding:26px;
+    border-radius:20px;
+    position:relative;
+    overflow:hidden;
+
+    box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,.04),
+        0 10px 35px rgba(0,0,0,.5);
+}
+
+.scx-stat span{
+    color:#8ea3d0;
+    font-size:16px;
+	font-weight: 800;
+}
+
+.scx-stat strong{
+    display:block;
+    font-size:32px;
+    margin-top:6px;
+}
+
+/* COLORS */
+
+.scx-stat.blue{
+    background:linear-gradient(135deg,#0e2548,#114a7a);
+}
+
+.scx-stat.purple{
+    background:linear-gradient(135deg,#26164b,#4b2e87);
+}
+
+.scx-stat.teal{
+    background:linear-gradient(135deg,#0b3d3d,#0f5f5f);
+}
+
+.scx-stat.gold{
+    background:linear-gradient(135deg,#3a2c0b,#6b520f);
+}
+
+/* ================= BAN MASTER BOX ================= */
+
+.scx-ban-box{
+    grid-row: span 2;
+    padding:30px;
+    border-radius:22px;
+    position:relative;
+    overflow:hidden;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,.04),
+        0 15px 50px rgba(0,0,0,.6);
+}
+
+/* CLEAN */
+
+.scx-ban-box.clean{
+    background:linear-gradient(135deg,#0b3d2c,#092c23);
+    border:1px solid rgba(0,255,180,.2);
+}
+
+/* BANNED */
+
+.scx-ban-box.banned{
+    background:linear-gradient(135deg,#3a0c0c,#250707);
+    border:1px solid rgba(255,80,80,.3);
+}
+
+/* RED WAVE */
+
+/* WAVE ONLY ON BAD BAN ITEMS */
+
+.scx-ban-item.bad{
+    position:relative;
+    overflow:hidden;
+}
+
+/* RED WAVE PER BAN */
+
+.scx-ban-item.bad::after{
+    content:"";
+    position:absolute;
+    inset:-60%;
+    background: radial-gradient(circle, rgba(255,0,0,.35), transparent 60%);
+    animation: scxBanItemWave 6s linear infinite;
+    pointer-events:none;
+}
+
+@keyframes scxBanItemWave{
+    from{ transform:rotate(0deg);}
+    to{ transform:rotate(360deg);}
+}
+
+
+@keyframes scxBanRotate{
+    from{ transform:rotate(0deg);}
+    to{ transform:rotate(360deg);}
+}
+
+/* STATUS */
+
+.scx-ban-status{
+    font-size:30px;
+    font-weight:800;
+    letter-spacing:2px;
+    margin-bottom:18px;
+}
+
+.scx-ban-box.clean .scx-ban-status{
+    color:#00ffb0;
+}
+
+.scx-ban-box.banned .scx-ban-status{
+    color:#ff4d4d;
+}
+
+/* BAN GRID */
+
+.scx-ban-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+}
+
+.scx-ban-item{
+    padding:14px;
+    border-radius:14px;
+    font-weight:600;
+    text-align:center;
+    font-size:14px;
+}
+
+/* GOOD */
+
+.scx-ban-item.good{
+    background:rgba(0,255,180,.07);
+    border:1px solid rgba(0,255,180,.25);
+    color:#00ffb0;
+}
+
+/* BAD */
+
+.scx-ban-item.bad{
+    background:rgba(255,70,70,.07);
+    border:1px solid rgba(255,70,70,.35);
+    color:#ff4d4d;
+    box-shadow:0 0 20px rgba(255,60,60,.25);
+}
+
+/* ================= GAMES ================= */
+
+.scx-section-title{
+    font-size:24px;
+    font-weight:600;
+    margin-bottom:18px;
+    color:#e6eeff;
+}
+
+/* GRID */
+
+.scx-games-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+    gap:22px;
+}
+
+/* CARD */
+
+.scx-game-card{
+    background:linear-gradient(135deg,#0a1429,#0e1b34);
+    border-radius:20px;
+    overflow:hidden;
+    position:relative;
+    transition:transform .25s ease, box-shadow .25s ease;
+
+    box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,.05),
+        0 15px 40px rgba(0,0,0,.55);
+}
+
+.scx-game-card:hover{
+    transform:translateY(-8px);
+    box-shadow:
+        0 0 35px rgba(90,140,255,.4),
+        0 25px 70px rgba(0,0,0,.7);
+}
+
+/* IMAGE */
+
+.scx-game-card img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+    display:block;
+}
+
+/* INFO */
+
+.scx-game-info{
+    padding:16px 18px;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    font-size:14px;
+    color:#c8d4ff;
+}
+
+/* TITLE */
+
+.scx-game-title{
+    font-weight:600;
+    font-size:15px;
+    color:#ffffff;
+    line-height:1.3;
+}
+
+/* META (HOURS + PRICE/FREE) */
+
+.scx-game-meta{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:13px;
+}
+
+.scx-game-hours{
+    color:#8ec7ff;
+    font-weight:500;
+}
+
+.scx-game-free{
+    color:#00ffb0;
+    font-weight:600;
+}
+
+.scx-game-price{
+    color:#ffcc66;
+    font-weight:600;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+    .scx-header-card{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .scx-ban-box{
+        grid-column: span 1;
+    }
+
+}
+
+
+/* ================= جمع قیمت آکانت ها ================= */
+.scx-section-title{
+    font-size:24px;
+    font-weight:600;
+    margin-bottom:18px;
+    color:#e6eeff;
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.scx-total-price{
+    font-size:16px;
+    font-weight:700;
+    color:#ffcc66;
+    background: rgba(255,255,255,0.1);
+    padding:4px 10px;
+    border-radius:12px;
+    transition:all 0.25s ease;
+    cursor:default;
+}
+
+.scx-total-price:hover{
+    background: rgba(255,204,102,0.2);
+    color:#fff;
+}
+
+
+
+
+/* ======================================================
+   DOTA 2 PROFESSIONAL UI — REBUILT & FIXED
+====================================================== */
+
+/* ================= MAIN CARD ================= */
+
+.scx-dota-card{
+    margin-top:50px;
+    border-radius:24px;
+    background:linear-gradient(135deg,#0a1429,#0f1f3d);
+    box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,.06),
+        0 30px 80px rgba(0,0,0,.75);
+    overflow:visible;
+}
+
+/* ================= HEADER ================= */
+
+.scx-dota-head{
+    padding:22px 28px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    cursor:pointer;
+    user-select:none;
+    background:linear-gradient(135deg,#0d1c36,#152a52);
+    border-radius:24px 24px 0 0;
+    font-size:20px;
+    font-weight:800;
+    letter-spacing:.3px;
+}
+
+.scx-dota-toggle{
+    font-size:28px;
+    opacity:.9;
+    transition:transform .25s ease;
+}
+
+.scx-dota-card.open .scx-dota-toggle{
+    transform:rotate(180deg);
+}
+
+/* ================= CONTENT ================= */
+
+.scx-dota-content{
+    display:none;
+    padding:30px;
+}
+
+/* ================= GRID ================= */
+
+.scx-dota-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:24px;
+}
+
+/* ================= FIELD (MINI CARD) ================= */
+
+.scx-dota-field{
+    background:linear-gradient(135deg,#0e2548,#114a7a);
+    border-radius:20px;
+    padding:20px;
+    box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,.06),
+        0 15px 40px rgba(0,0,0,.55);
+    position:relative;
+}
+
+/* COLOR VARIANTS (OPTIONAL) */
+
+.scx-dota-field.gold{
+    background:linear-gradient(135deg,#3a2c0b,#6b520f);
+}
+
+.scx-dota-field.teal{
+    background:linear-gradient(135deg,#0b3d3d,#0f5f5f);
+}
+
+/* ================= LABEL ================= */
+
+.scx-dota-field label{
+    display:block;
+    margin-bottom:14px;
+    font-size:15px;
+    font-weight:700;
+    color:#9fb9ff;
+}
+
+
+/* SHARDS SPECIAL COLOR */
+.scx-dota-field.shards{
+    background: linear-gradient(135deg,#123b3f,#1fa2a8);
+    box-shadow:
+        inset 0 0 0 1px rgba(120,255,255,.18),
+        0 15px 40px rgba(0,0,0,.55);
+}
+
+.scx-dota-field.shards label{
+    color:#7ffcff;
+}
+
+/* ================= INPUT ================= */
+
+.scx-input{
+    background:rgba(0,0,0,.28);
+    border-radius:14px;
+    padding:14px;
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);
+}
+
+.scx-input input{
+    width:100%;
+    background:none;
+    border:none;
+    outline:none;
+    color:#fff;
+    font-size:18px;
+    font-weight:700;
+}
+
+/* ================= CUSTOM SELECT ================= */
+
+.scx-select{
+    position:relative;
+    z-index:100;
+}
+
+.scx-select-trigger{
+    background:rgba(0,0,0,.28);
+    padding:14px;
+    border-radius:14px;
+    cursor:pointer;
+    font-weight:700;
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);
+}
+
+.scx-select.open .scx-select-trigger{
+    box-shadow:
+        inset 0 0 0 1px rgba(140,180,255,.5),
+        0 0 0 3px rgba(140,180,255,.15);
+}
+
+/* DROPDOWN */
+
+.scx-select-options{
+    position:absolute;
+    top:calc(100% + 10px);
+    left:0;
+    right:0;
+    background:linear-gradient(135deg,#0d1c36,#152a52);
+    border-radius:18px;
+    display:none;
+    z-index:9999;
+    box-shadow:0 25px 60px rgba(0,0,0,.85);
+    overflow:hidden;
+}
+
+.scx-select.open .scx-select-options{
+    display:block;
+}
+
+/* OPTIONS */
+
+.scx-option{
+    padding:14px 18px;
+    cursor:pointer;
+    font-weight:700;
+    transition:background .2s ease;
+}
+
+.scx-option:hover{
+    background:rgba(140,180,255,.18);
+}
+
+
+
+/* Chrome, Edge, Safari 
+حذف آیکن شماره در فرم Number
+*/
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+
+
+
+
+/* ================= MEDAL CARD ================= */
+.scx-medal-card {
+    width: 100%;
+    border-radius: 24px;
+    background: linear-gradient(135deg,#0a1429,#0f1f3d);
+    box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,.06),
+        0 30px 80px rgba(0,0,0,.75);
+    margin: 10px 0;
+    overflow: visible;
+    padding: 0;
+    font-family: Inter, system-ui;
+    color: #e6eeff;
+}
+
+/* CONTENT */
+.scx-card-content {
+    padding: 26px 28px 30px 28px;
+}
+
+/* MEDALS GRID */
+.scx-medals {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(90px, 90px));
+    justify-content: center;
+    gap: 16px;
+}
+
+/* MEDAL ITEM */
+.scx-medal {
+    background: rgba(0,0,0,.28);
+    border-radius: 16px;
+    padding: 8px;
+    cursor: pointer;
+    position: relative;
+    transition: all .25s ease;
+    display: flex;
+    flex-direction: column; /* تصویر + متن عمودی */
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,.08),
+        0 10px 25px rgba(0,0,0,.5);
+}
+
+/* MEDAL IMAGE */
+.scx-medal img {
+    width: 65px;  /* اندازه استاندارد */
+    height: 65px;
+    object-fit: contain;
+    transition: all .25s ease;
+}
+
+
+.scx-medal-title {
+    font-size: 12px;
+    margin-top: 4px;
+    text-align: center;
+    font-weight: 600;
+    color: #e6eeff;
+    letter-spacing: .3px;
+}
+
+
+/* Hover Effect */
+.scx-medal:hover {
+    transform: translateY(-4px);
+}
+
+.scx-medal:hover img {
+    filter: none;
+}
+
+/* Active / Selected */
+.scx-medal.active {
+    box-shadow:
+        inset 0 0 0 2px rgba(255,204,102,.9),
+        0 0 30px rgba(255,204,102,.6);
+}
+
+.scx-medal.active img {
+    filter: none;
+}
+
+/* Immortal special glow */
+.scx-medal.immortal.active {
+    box-shadow:
+        inset 0 0 0 2px rgba(255,80,80,.9),
+        0 0 40px rgba(255,60,60,.7);
+}
+
+/* ===== HERALD ===== */
+.scx-medal.herald.active{
+    box-shadow:
+        inset 0 0 0 2px rgba(150,150,150,.9),
+        0 0 25px rgba(150,150,150,.6);
+}
+
+/* ===== GUARDIAN ===== */
+.scx-medal.guardian.active{
+    box-shadow:
+        inset 0 0 0 2px rgba(90,160,255,.9),
+        0 0 25px rgba(90,160,255,.6);
+}
+
+/* ===== CRUSADER ===== */
+.scx-medal.crusader.active{
+    box-shadow:
+        inset 0 0 0 2px rgba(110,255,180,.9),
+        0 0 25px rgba(110,255,180,.6);
+}
+
+/* ===== ARCHON ===== */
+.scx-medal.archon.active{
+    box-shadow:
+        inset 0 0 0 2px rgba(180,120,255,.9),
+        0 0 30px rgba(180,120,255,.6);
+}
+
+/* ===== LEGEND ===== */
+.scx-medal.legend.active{
+    box-shadow:
+        inset 0 0 0 2px rgba(255,160,60,.95),
+        0 0 35px rgba(255,160,60,.7);
+}
+
+/* ===== ANCIENT ===== */
+.scx-medal.ancient.active{
+    box-shadow:
+        inset 0 0 0 2px rgba(255,220,120,.95),
+        0 0 40px rgba(255,220,120,.75);
+}
+
+/* ===== DIVINE ===== */
+.scx-medal.divine.active{
+    box-shadow:
+        inset 0 0 0 2px rgba(255,120,60,.95),
+        0 0 45px rgba(255,120,60,.75);
+}
+
+/* ===== IMMORTAL ===== */
+.scx-medal.immortal.active{
+    box-shadow:
+        inset 0 0 0 2px rgba(255,70,70,.95),
+        0 0 55px rgba(255,60,60,.85);
+}
+
+/* ===== IMMORTAL TOP ===== */
+.scx-medal.immortal-top.active{
+    box-shadow:
+        inset 0 0 0 2px rgba(255,0,0,1),
+        0 0 65px rgba(255,0,0,.95),
+        0 0 120px rgba(255,0,0,.45);
+}
+
+/* ریسپانسیو */
+@media (max-width: 480px) {
+    .scx-medal img {
+        width: 50px;
+        height: 50px;
+    }
+}
+.scx-medal.active{
+    animation: medalPulse 2.5s infinite ease-in-out;
+}
+
+@keyframes medalPulse{
+    0%{ transform:scale(1); }
+    50%{ transform:scale(1.04); }
+    100%{ transform:scale(1); }
+}
+
+
+/* ================= ACCOUNT SUBMISSION FORM ================= */
+
+.scx-account-form {
+    margin-top: 50px;
+    padding: 28px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #0a1429, #0f1f3d);
+    box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,.06),
+        0 30px 80px rgba(0,0,0,.75);
+}
+
+/* ROWS */
+.scx-form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 22px;
+    flex-wrap: wrap;
+}
+
+.scx-form-row.full {
+    flex-direction: column;
+}
+
+/* FIELDS */
+.scx-form-field {
+    flex: 1;
+    min-width: 200px;
+}
+
+.scx-form-field label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #9fb9ff;
+}
+
+/* INPUT WRAPPER */
+.scx-input {
+    padding: 12px 16px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #121f3f, #182a55);
+    box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,.08),
+        0 8px 20px rgba(0,0,0,.5);
+}
+
+/* INPUTS */
+.scx-input input,
+.scx-input textarea {
+    width: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.scx-input textarea {
+    resize: none;
+}
+
+/* ================= CUSTOM DROPDOWN ================= */
+
+.scx-select {
+    position: relative;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #121f3f, #182a55);
+    box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,.08),
+        0 8px 20px rgba(0,0,0,.5);
+    cursor: pointer;
+}
+
+/* Trigger */
+.scx-select-trigger {
+    padding: 12px 16px;
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #e9f0ff;
+    background: linear-gradient(135deg, #182a55, #1f3b7a);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.12);
+    transition: all .25s ease;
+}
+
+.scx-select-trigger:hover {
+    background: linear-gradient(135deg, #1f3b7a, #2b4db3);
+    color: #ffffff;
+}
+
+/* Options */
+.scx-select-options {
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    width: 100%;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #0f1c3a, #142a5c);
+    box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,.08),
+        0 15px 40px rgba(0,0,0,.8);
+    z-index: 999;
+    overflow: hidden;
+}
+
+.scx-option {
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #cfe0ff;
+    transition: all .2s ease;
+}
+
+.scx-option:hover {
+    background: linear-gradient(135deg, #2b4db3, #3c6dff);
+    color: #ffffff;
+}
+
+/* ================= ACTIONS ================= */
+
+.scx-form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* UPLOAD */
+.scx-upload-wrap {
+    display: flex!important;
+    flex-direction: column!important;
+    gap: 12px!important;
+}
+
+.scx-upload-btn {
+    padding: 12px 22px!important;
+    border-radius: 999px!important;
+    background: linear-gradient(135deg, #4f8cff, #7d5cff)!important;
+    color: #ffffff!important;
+    font-weight: 700!important;
+    border: none!important;
+    cursor: pointer!important;
+    box-shadow: 0 10px 25px rgba(80,120,255,.4)!important;
+    transition: all .25s ease!important;
+    width: fit-content!important;
+}
+
+.scx-upload-btn:hover {
+    transform: translateY(-2px)!important;
+    box-shadow: 0 15px 40px rgba(80,120,255,.6)!important;
+}
+
+.scx-upload-previews {
+    display: flex!important;
+    gap: 8px!important;
+    flex-wrap: wrap!important;
+}
+
+.scx-upload-previews img {
+    width: 36px!important;
+    height: 36px!important;
+    border-radius: 8px!important;
+    object-fit: cover!important;
+    box-shadow: 0 0 12px rgba(255,255,255,.35)!important;
+}
+
+/* SUBMIT BUTTON */
+.scx-submit-btn {
+    padding: 14px 28px!important;
+    border-radius: 999px!important;
+    background: linear-gradient(135deg, #00ffb0, #00c08b)!important;
+    color: #0b1c14!important;
+    font-weight: 800!important;
+    border: none!important;
+    cursor: pointer!important;
+    box-shadow: 0 10px 30px rgba(0,255,180,.5)!important;
+    transition: all .25s ease!important;
+}
+
+.scx-submit-btn:hover {
+    transform: translateY(-3px)!important;
+    box-shadow: 0 20px 45px rgba(0,255,180,.7)!important;
+}
+
+
+
+.scx-output {
+    font-weight: 800;
+    font-size: 18px;
+    font-family: "Rajdhani", sans-serif;
+    text-align: left;
+}
+
+.blue .scx-output {
+    color: #4FC3F7;
+    text-shadow: 0 0 8px rgba(79,195,247,.5);
+}
+
+.teal .scx-output {
+    color: #2ECC71;
+    text-shadow: 0 0 8px rgba(46,204,113,.5);
+}
+
+.gold .scx-output {
+    color: #E7B35A;
+    text-shadow: 0 0 8px rgba(231,179,90,.5);
+}
+
+.shards .scx-output {
+    color: #FF9F43;
+    text-shadow: 0 0 8px rgba(255,159,67,.5);
+}
+
+/* ================= GALLERY SLIDER ================= */
+/* ===== PRO GALLERY ===== */
+
+.scx-pro-gallery{
+    max-width:1100px;
+    margin:0 auto 40px;
+}
+
+/* MAIN */
+.scx-pro-main{
+    position:relative;
+    overflow:hidden;
+    border-radius:16px;
+    background:#111;
+}
+
+.scx-pro-slide{
+    display:none;
+}
+
+.scx-pro-slide.active{
+    display:block;
+}
+
+.scx-pro-slide img{
+    width:100%;
+    display:block;
+    cursor:zoom-in;
+    transition:transform .4s;
+}
+
+/* Hover zoom desktop */
+@media(min-width:1024px){
+.scx-pro-slide img:hover{
+    transform:scale(1.05);
+}
+}
+
+/* ARROWS */
+.scx-pro-prev,
+.scx-pro-next{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:46px;
+    height:46px;
+    border-radius:50%;
+    border:none;
+    background:rgba(0,0,0,.6);
+    color:#fff;
+    font-size:26px;
+    cursor:pointer;
+    z-index:5;
+}
+
+.scx-pro-prev{ left:15px; }
+.scx-pro-next{ right:15px; }
+
+/* THUMBS */
+.scx-pro-thumbs{
+    display:flex;
+    gap:10px;
+    margin-top:15px;
+    overflow-x:auto;
+    padding-bottom:5px;
+}
+
+.scx-thumb{
+    width:80px;
+    height:60px;
+    object-fit:cover;
+    border-radius:8px;
+    opacity:.5;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.scx-thumb.active{
+    opacity:1;
+    outline:2px solid #4cc2ff;
+}
+
+/* LIGHTBOX */
+.scx-pro-lightbox{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.95);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+}
+
+.scx-pro-lightbox img{
+    max-width:95%;
+    max-height:95%;
+}
+
+.scx-lightbox-close{
+    position:absolute;
+    top:20px;
+    right:30px;
+    color:#fff;
+    font-size:42px;
+    cursor:pointer;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+.scx-pro-prev,
+.scx-pro-next{
+    width:38px;
+    height:38px;
+    font-size:20px;
+}
+
+.scx-thumb{
+    width:65px;
+    height:50px;
+}
+
+}
+
+
+
+
+
+/* نمایش خصوصی و یا عمومی بودن آکانت استیم کاربر */
+/* LEFT SIDE */
+.scx-header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* BADGES */
+.scx-badges .scx-badge {
+    margin-right: 5px;
+}
+
+/* RIGHT SIDE: VISIBILITY */
+.scx-header-right {
+    display: flex;
+    align-items: center;
+}
+
+/* VISIBILITY BADGE */
+.scx-visibility-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;       /* مهم: لینک بدون زیرخط */
+    cursor: pointer;             /* نشان می‌دهد کلیک شدنی است */
+    transition: all 0.2s ease;   /* برای افکت smooth */
+    position: relative;
+}
+.scx-visibility-badge:hover {
+    transform: scale(1.05);      /* کمی بزرگتر شود */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* سایه نرم */
+}
+.scx-visibility-badge::before {
+    content: "🔒"; /* 🔓 برای Public هم می‌شود */
+    display: inline-block;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+.scx-visibility-badge.public::before {
+    content: "🌐"; /* برای Public */
+}
+.scx-visibility-badge.private::before {
+    content: "🔒"; /* برای Private */
+}
+
+/* VISIBILITY COLORS */
+.scx-visibility-badge.public {
+    background-color: #28a745; /* سبز */
+}
+.scx-visibility-badge.private {
+    background-color: #dc3545; /* قرمز */
+}

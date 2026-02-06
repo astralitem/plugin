@@ -1,0 +1,5 @@
+<?php
+if (!defined('ABSPATH')) exit;
+
+define('SCX_API_KEY', 'C61FD81B9D761DFBA3D99DAC72EE3075');
+define('SCX_CACHE_TIME', 6 * HOUR_IN_SECONDS);
