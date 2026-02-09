@@ -1,0 +1,836 @@
+.scp-users-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-top: 16px;
+}
+
+@media (max-width: 1200px) {
+    .scp-users-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 900px) {
+    .scp-users-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 500px) {
+    .scp-users-grid { grid-template-columns: 1fr; }
+}
+
+.scp-user-card {
+    background: linear-gradient(145deg, #0b1220, #020617);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 10px 12px;
+    display: flex;
+    align-items: flex-start; /* اسم و لینک سمت راست */
+    gap: 3px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.45);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+}
+
+.scp-user-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.6);
+}
+
+.scp-avatar {
+    width: 56px!important;
+    height: 56px!important;
+    border-radius: 10px!important;
+    object-fit: cover!important;
+    border: 2px solid rgba(255,255,255,0.15)!important;
+    flex-shrink: 0!important;
+	margin-left: 5px;
+}
+
+.scp-user-info {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    flex-wrap: wrap;
+    color: #e5e7eb;
+    font-family: Tahoma, sans-serif;
+    font-size: 13px;
+    flex: 1;
+}
+
+.scp-name {
+    font-size: 14px;
+    font-weight: 700;
+	color: #4f8cff; 
+    text-shadow: 0 0 6px rgba(79,140,255,0.7); 
+    text-decoration: none;
+    display: block;
+    max-width: 180px; /* فضای بیشتر برای اسم */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+.scp-name:hover {
+	color: #ffffff; 
+    text-shadow: 0 0 6px rgba(79, 141, 255, 0.301); 
+}
+
+/* Steam Level Badge */
+.scp-level-badge {
+    position: relative;
+    padding: 4px 10px 3px 10px;
+    font-size: 11px;
+    font-weight: 800;
+    border-radius: 999px;
+    line-height: 1.4;
+    white-space: nowrap;
+    background: linear-gradient(135deg, #1b2838, #2a475e);
+    color: #c7d5e0;
+    box-shadow: 0 0 6px rgba(0,0,0,.25);
+}
+
+/* Tooltip text */
+.scp-level-badge::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(6px);
+    background: #1b2838;
+    color: #c7d5e0;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 6px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    transition: all 0.25s ease;
+    z-index: 999;
+}
+
+/* Tooltip arrow */
+.scp-level-badge::before {
+    content: "";
+    position: absolute;
+    bottom: calc(100% + 2px);
+    left: 50%;
+    transform: translateX(-50%) translateY(6px);
+    border-width: 6px;
+    border-style: solid;
+    border-color: #1b2838 transparent transparent transparent;
+    opacity: 0;
+    transition: all 0.25s ease;
+}
+
+/* Show on hover / focus */
+.scp-level-badge:hover::after,
+.scp-level-badge:hover::before,
+.scp-level-badge:focus::after,
+.scp-level-badge:focus::before {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Level tiers */
+.scp-level-basic {
+    background: #2a2f3a;
+    color: #bfc7d5;
+}
+
+.scp-level-bronze {
+    background: linear-gradient(135deg, #6b4f2c, #a97142);
+    color: #ffe1b8;
+    box-shadow: 0 0 6px rgba(169,113,66,0.4);
+}
+
+.scp-level-silver {
+    background: linear-gradient(135deg, #8a93a0, #cfd6e1);
+    color: #1b1f27;
+    box-shadow: 0 0 8px rgba(207,214,225,0.5);
+}
+
+.scp-level-gold {
+    background: linear-gradient(135deg, #d4af37, #ffdd7e);
+    color: #2a1a00;
+    box-shadow: 0 0 12px rgba(255,221,126,0.8);
+}
+
+.scp-level-platinum {
+    background: linear-gradient(135deg, #6f7cff, #b6c4ff);
+    color: #0b1020;
+    box-shadow:
+        0 0 12px rgba(111,124,255,0.9),
+        0 0 24px rgba(111,124,255,0.6);
+    animation: scp-platinum-glow 2.5s infinite alternate;
+}
+
+@keyframes scp-platinum-glow {
+    from { box-shadow: 0 0 12px rgba(111,124,255,0.6); }
+    to   { box-shadow: 0 0 24px rgba(111,124,255,1); }
+}
+
+
+.scp-status {
+    white-space: nowrap;
+}
+
+.scp-online-status {
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 999px;
+    animation: fadePulse 1.6s infinite ease-in-out;
+}
+
+.scp-online-status.online {
+    color: #00ff99;
+    background: rgba(0, 255, 153, 0.15);
+    text-shadow: 0 0 6px rgba(0,255,153,0.6);
+}
+
+.scp-online-status.offline {
+    color: #ff4d6d;
+    background: rgba(255, 77, 109, 0.15);
+    text-shadow: 0 0 6px rgba(255,77,109,0.5);
+}
+
+@keyframes fadePulse {
+    0%   { opacity: 0.55; }
+    50%  { opacity: 1; }
+    100% { opacity: 0.55; }
+}
+
+.scp-profile-link {
+    margin-left: auto;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0,114,255,0.4);
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.scp-profile-link:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 7px 16px rgba(0,114,255,0.7);
+}
+
+
+
+
+
+/* ===============================
+   Steam Connect – Full Styles
+   =============================== */
+
+/* Box */
+.scp-box {
+    background: linear-gradient(135deg, #0f1a2b, #0b1220);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 16px;
+    padding: 20px;
+    width: 100%;
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+
+/* Top bar */
+.scp-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+/* Success badge */
+.scp-success {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(34,197,94,.15);
+    border: 1px solid rgba(34,197,94,.35);
+    color: #22c55e;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.scp-check {
+    background: #22c55e;
+    color: #000;
+    width: 18px;
+    height: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 12px;
+}
+
+/* Profile */
+.scp-profile {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
+
+.scp-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    border: 2px solid rgba(255,255,255,.15);
+}
+
+/* Info */
+.scp-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.scp-info strong {
+    font-size: 15px;
+    font-weight: 700;
+    color: #f9fafb;
+}
+
+/* Steam Level */
+.scp-info span {
+    width: fit-content;
+    background: rgba(59,130,246,.15);
+    border: 1px solid rgba(59,130,246,.35);
+    color: #93c5fd;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 999px;
+}
+
+/* Profile link */
+.scp-info a {
+    font-size: 13px;
+    font-weight: 500;
+    color: #60a5fa;
+    text-decoration: none;
+}
+
+.scp-info a:hover {
+    color: #93c5fd;
+    text-decoration: underline;
+}
+
+/* Buttons – base */
+.scp-btn {
+    display: inline-block!important;
+    text-align: center!important;
+    padding: 12px!important;
+    border-radius: 12px!important;
+    font-weight: 600!important;
+    text-decoration: none!important;
+    border: none!important;
+    cursor: pointer!important;
+    transition: all .25s ease!important;
+}
+
+/* Small button */
+.scp-btn-sm {
+    padding: 8px 14px!important;
+    font-size: 13px!important;
+}
+
+/* ===== Connect Steam Button ===== */
+.scp-btn-steam {
+    width: 100%!important;
+    position: relative!important;
+    overflow: hidden!important;
+    background: linear-gradient(135deg, #1b2838, #171a21)!important;
+    color: #fff!important;
+}
+
+/* Glow layer */
+.scp-btn-steam::before {
+    content: ""!important;
+    position: absolute!important;
+    inset: 0!important;
+    background: radial-gradient(circle at top left, rgba(255,255,255,.18), transparent 60%)!important;
+    opacity: 0!important;
+    transition: opacity .3s ease!important;
+}
+
+.scp-btn-steam:hover {
+    transform: translateY(-2px) scale(1.01)!important;
+    box-shadow: 0 10px 30px rgba(30,215,96,.25)!important;
+}
+
+.scp-btn-steam:hover::before {
+    opacity: 1!important;
+}
+
+.scp-btn-steam:active {
+    transform: scale(.98)!important;
+}
+
+/* ===== Login Button ===== */
+.scp-btn-login {
+    width: 100%!important;
+    background: #2563eb!important;
+    color: #fff!important;
+}
+
+.scp-btn-login:hover {
+    box-shadow: 0 10px 25px rgba(37,99,235,.45)!important;
+    transform: translateY(-1px)!important;
+}
+
+/* ===== Disconnect Button ===== */
+.scp-btn-danger {
+    position: relative!important;
+    overflow: hidden!important;
+    background: linear-gradient(135deg, #ef4444, #b91c1c)!important;
+    color: #fff!important;
+}
+
+/* Shine effect */
+.scp-btn-danger::after {
+    content: ""!important;
+    position: absolute!important;
+    top: -50%!important;
+    left: -60%!important;
+    width: 40%!important;
+    height: 200%!important;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.35),
+        transparent
+    );
+    transform: rotate(25deg)!important;
+    opacity: 0!important;
+}
+
+.scp-btn-danger:hover {
+    transform: translateY(-1px)!important;
+    box-shadow: 0 8px 22px rgba(239,68,68,.35)!important;
+}
+
+.scp-btn-danger:hover::after {
+    animation: scp-shine .9s ease!important;
+}
+
+.scp-btn-danger:active {
+    transform: scale(.97)!important;
+}
+
+/* Shine animation */
+@keyframes scp-shine {
+    from { left: -60%; opacity: 1!important; }
+    to   { left: 130%; opacity: 0!important; }
+}
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   برای پروفایل کاربری (صفحه دکمه پروفایل کاربر)
+========================= */
+
+.scp-public-profile{
+    max-width:1200px;
+    margin:40px auto;
+    padding:0 20px;
+}
+
+/* =========================
+   PROFILE CARD
+========================= */
+
+.scp-public-card{
+    background:linear-gradient(180deg,#1b2838 0%,#171a21 100%);
+    border-radius:16px;
+    padding:32px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    box-shadow:0 20px 40px rgba(0,0,0,.4);
+    border:1px solid rgba(255,255,255,.05);
+    position:relative;
+    overflow:hidden;
+}
+
+/* subtle glow */
+.scp-public-card:before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle at top, rgba(102,192,244,.15), transparent 60%);
+    pointer-events:none;
+}
+
+/* =========================
+   AVATAR
+========================= */
+
+.scp-avatar-large{
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    border:4px solid #66c0f4;
+    box-shadow:0 0 25px rgba(102,192,244,.35);
+    margin-bottom:18px;
+}
+
+/* =========================
+   USER NAME
+========================= */
+
+.scp-public-card h2{
+    font-size:28px;
+    font-weight:700;
+    color:#fff;
+    margin-bottom:8px;
+}
+
+/* =========================
+   LEVEL
+========================= */
+
+.scp-level{
+    font-size:15px;
+    color:#c7d5e0;
+    margin-bottom:6px;
+}
+
+/* =========================
+   FRIEND COUNT
+========================= */
+
+.scp-friends-count{
+    font-size:14px;
+    color:#8f98a0;
+    margin-bottom:14px;
+}
+
+/* =========================
+   STATUS
+========================= */
+
+.scp-online-status-profile{
+    display:inline-block;
+    padding:6px 14px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.scp-online-status-profile.online{
+    background:rgba(40,167,69,.15);
+    color:#4caf50;
+    border:1px solid rgba(40,167,69,.4);
+}
+
+.scp-online-status-profile.offline{
+    background:rgba(200,200,200,.08);
+    color:#aaa;
+    border:1px solid rgba(200,200,200,.2);
+}
+
+/* =========================
+   PROFILE BUTTON
+========================= */
+
+.scp-profile-link-steami{
+    margin-top:18px;
+    background:linear-gradient(90deg,#66c0f4,#417a9b);
+    color:#fff;
+    padding:10px 20px;
+    border-radius:10px;
+    font-weight:600;
+    text-decoration:none;
+    transition:.25s;
+    box-shadow:0 8px 20px rgba(102,192,244,.3);
+}
+
+.scp-profile-link-steami:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 25px rgba(102,192,244,.45);
+}
+
+/* =========================
+   SECTION TITLES
+========================= */
+
+.scp-public-profile h3{
+    margin-top:50px;
+    margin-bottom:20px;
+    font-size:22px;
+    font-weight:700;
+    color:#fff;
+}
+
+/* =========================
+   GAMES GRID
+========================= */
+
+.scp-games-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(155px,1fr));
+    gap:4px;
+}
+
+/* =========================
+   GAME CARD
+========================= */
+
+.scp-game-card{
+    background:#171a21;
+    border-radius:14px;
+    overflow:hidden;
+    transition:.3s;
+    border:1px solid rgba(255,255,255,.04);
+    box-shadow:0 10px 25px rgba(0,0,0,.45);
+    position:relative;
+}
+
+.scp-game-card:hover{
+    transform:translateY(-6px) scale(1.01);
+    box-shadow:0 18px 35px rgba(0,0,0,.6);
+}
+
+/* game image */
+
+.scp-game-card img{
+    width:100%;
+    height:140px;
+    object-fit:cover;
+}
+
+/* game info */
+
+.scp-game-info{
+    padding:3px;
+}
+
+.scp-game-info strong{
+    display:block;
+    color:#fff;
+    font-size:15px;
+    margin-bottom:3px;
+
+    /* NEW — جلوگیری از شکستن عنوان */
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.scp-game-info div{
+    font-size:13px;
+    color:#8f98a0;
+}
+
+/* =========================
+   EMPTY STATES
+========================= */
+
+.scp-games-grid:empty:after{
+    content:"No data available";
+    color:#8f98a0;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+/* Tablet */
+@media (max-width:900px){
+
+    .scp-public-card{
+        padding:26px;
+    }
+
+    .scp-avatar-large{
+        width:120px;
+        height:120px;
+    }
+
+    .scp-public-card h2{
+        font-size:24px;
+    }
+
+}
+
+/* Mobile */
+@media (max-width:600px){
+
+    .scp-public-profile{
+        margin:25px auto;
+    }
+
+    .scp-public-card{
+        padding:22px;
+    }
+
+    .scp-avatar-large{
+        width:100px;
+        height:100px;
+    }
+
+    .scp-public-card h2{
+        font-size:20px;
+    }
+
+    .scp-games-grid{
+        grid-template-columns:1fr;
+        gap:18px;
+    }
+
+}
+/* =========================
+   SECTION HEADER
+========================= */
+
+.scp-section-header{
+    margin-top:60px;
+    margin-bottom:20px;
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.scp-section-header:after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:linear-gradient(90deg,#66c0f4,transparent);
+}
+
+.scp-section-title{
+    font-size:24px;
+    font-weight:700;
+    color:#fff;
+    letter-spacing:.3px;
+}
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.scp-empty-state{
+    background:#171a21;
+    border-radius:14px;
+    padding:40px;
+    text-align:center;
+    color:#8f98a0;
+    font-size:15px;
+    border:1px solid rgba(255,255,255,.05);
+    box-shadow:0 10px 25px rgba(0,0,0,.45);
+}
+
+/* icon style circle */
+
+.scp-empty-state:before{
+    content:"🎮";
+    display:block;
+    font-size:32px;
+    margin-bottom:12px;
+    opacity:.6;
+}
+
+/* =========================
+   RESPONSIVE SECTION
+========================= */
+
+@media (max-width:600px){
+
+    .scp-section-header{
+        margin-top:40px;
+    }
+
+    .scp-section-title{
+        font-size:20px;
+    }
+
+    .scp-empty-state{
+        padding:30px;
+        font-size:14px;
+    }
+
+}
+
+
+/* =========================
+   PLAYTIME BADGE
+========================= */
+
+.scp-playtime-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    margin-top:6px;
+    padding:6px 12px;
+
+    font-size:13px;
+    font-weight:600;
+
+    color:#66c0f4;
+
+    background:rgba(102,192,244,.12);
+    border:1px solid rgba(102,192,244,.35);
+    border-radius:999px;
+
+    box-shadow:0 4px 10px rgba(0,0,0,.25);
+
+    transition:.25s;
+}
+
+/* hover effect */
+.scp-game-card:hover .scp-playtime-badge{
+    background:rgba(102,192,244,.2);
+    border-color:#66c0f4;
+}
+
+/* =========================
+   SMALL MOBILE TWEAK
+========================= */
+
+@media (max-width:600px){
+
+    .scp-playtime-badge{
+        font-size:12px;
+        padding:5px 10px;
+    }
+
+}
+
+
+
+/* پیام خطا اگه استیم آیدی تکراری بود */
+  #scp-sticky-error {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #f44336;
+    color: #fff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 9999;
+    font-size: 16px;
+    text-align: center;
+    animation: scp-fadein 0.3s ease forwards;
+  }
+
+  @keyframes scp-fadein {
+    from {opacity: 0; transform: translate(-50%, -60%);}
+    to {opacity: 1; transform: translate(-50%, -50%);}
+  }
