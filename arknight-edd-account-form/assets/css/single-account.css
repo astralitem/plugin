@@ -1,0 +1,317 @@
+/* =====================================
+   ARKNIGHTS GACHA / ANIME STORE THEME
+   Persian Font Edition
+====================================== */
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
+
+:root{
+  --arkn-bg:#070b17;
+  --arkn-panel:rgba(18,22,45,.75);
+  --arkn-card:rgba(28,32,65,.65);
+
+  --arkn-neon-purple:#7a5cff;
+  --arkn-neon-cyan:#00e4ff;
+  --arkn-neon-pink:#ff4fd8;
+
+  --arkn-text:#ecf0ff;
+  --arkn-text-dim:#9aa3c7;
+
+  --arkn-radius:20px;
+}
+
+/* =========================
+   MAIN PAGE
+========================= */
+
+.arkn-single-account{
+  background:
+    radial-gradient(circle at 20% 0%, rgba(122,92,255,.25), transparent 45%),
+    radial-gradient(circle at 90% 100%, rgba(0,228,255,.2), transparent 40%),
+    var(--arkn-bg);
+
+  min-height:100vh;
+  padding:40px 20px;
+  color:var(--arkn-text);
+
+  /* فونت اصلی فارسی */
+  font-family:"Vazirmatn","IRANSans","Tahoma",sans-serif;
+}
+
+/* =========================
+   PANELS
+========================= */
+
+.arkn-single-account__panel{
+  background:var(--arkn-panel);
+  backdrop-filter:blur(18px);
+
+  border-radius:var(--arkn-radius);
+  padding:28px;
+  margin-bottom:28px;
+
+  border:1px solid rgba(255,255,255,.06);
+
+  box-shadow:
+    0 0 0 1px rgba(122,92,255,.15),
+    0 15px 50px rgba(0,0,0,.7),
+    inset 0 0 30px rgba(122,92,255,.08);
+
+  position:relative;
+}
+
+.arkn-single-account__panel::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent,rgba(122,92,255,.25),transparent);
+  opacity:.4;
+  pointer-events:none;
+}
+
+/* =========================
+   TITLES
+========================= */
+
+.arkn-single-account__title{
+  font-size:34px;
+  font-weight:800;
+  margin-bottom:25px;
+
+  background:linear-gradient(
+    90deg,
+    var(--arkn-neon-purple),
+    var(--arkn-neon-cyan),
+    var(--arkn-neon-pink)
+  );
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.arkn-single-account h2{
+  margin-bottom:20px;
+  font-family:"Vazirmatn",sans-serif;
+}
+
+/* =========================
+   GRID INFO
+========================= */
+
+.arkn-single-account__grid,
+.arkn-single-account__overview{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:18px;
+}
+
+.arkn-single-account__item{
+  background:var(--arkn-card);
+  border-radius:14px;
+  padding:16px;
+  border:1px solid rgba(255,255,255,.05);
+  transition:.35s;
+}
+
+.arkn-single-account__item:hover{
+  transform:translateY(-4px);
+  box-shadow:0 0 20px rgba(122,92,255,.35);
+}
+
+/* ⭐ لیبل‌ها فقط وزیر */
+
+.arkn-single-account__label{
+  font-size:14px;
+  color:#fff;
+  display:block;
+  margin-bottom:6px;
+  font-weight:700;
+
+  font-family:"Vazir","Vazirmatn","IRANSans",sans-serif;
+}
+
+/* متن مقدارها */
+
+.arkn-single-account__value{
+  font-size:16px;
+  font-weight:700;
+  font-family:"Vazirmatn",sans-serif;
+}
+
+/* =====================================
+   GALLERY
+====================================== */
+
+.arkn-gallery{
+  position:relative !important;
+  padding:22px !important;
+  border-radius:24px !important;
+
+  background:linear-gradient(145deg, rgba(30,35,70,.7), rgba(15,18,40,.9)) !important;
+  backdrop-filter:blur(18px) !important;
+
+  border:1px solid rgba(255,255,255,.08) !important;
+  overflow:hidden !important;
+}
+
+.arkn-gallery__stage{
+  position:relative !important;
+  width:100% !important;
+  height:420px !important;
+  overflow:hidden !important;
+  border-radius:20px !important;
+  background:#050814 !important;
+}
+
+.arkn-gallery__slide{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  border:none !important;
+  background:none !important;
+  padding:0 !important;
+  opacity:0 !important;
+  pointer-events:none !important;
+  transform:scale(.96) !important;
+  transition:all .45s ease !important;
+}
+
+.arkn-gallery__slide.is-active{
+  opacity:1 !important;
+  pointer-events:auto !important;
+  z-index:2 !important;
+  transform:scale(1) !important;
+}
+
+.arkn-gallery__slide img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  border-radius:20px !important;
+}
+
+/* NAV */
+
+.arkn-gallery__nav{
+  position:absolute !important;
+  top:50% !important;
+  transform:translateY(-50%) !important;
+
+  width:54px !important;
+  height:54px !important;
+  border-radius:50% !important;
+
+  border:1px solid rgba(255,255,255,.2) !important;
+  background:rgba(0,0,0,.5) !important;
+  backdrop-filter:blur(10px) !important;
+
+  font-size:28px !important;
+  color:white !important;
+  cursor:pointer !important;
+  z-index:5 !important;
+}
+
+.arkn-gallery__nav--prev{ left:10px !important; }
+.arkn-gallery__nav--next{ right:10px !important; }
+
+/* THUMBS */
+
+.arkn-gallery__thumbs{
+  display:flex !important;
+  gap:12px !important;
+  margin-top:18px !important;
+  overflow-x:auto !important;
+}
+
+.arkn-gallery__thumb{
+  border:none !important;
+  padding:3px !important;
+  border-radius:14px !important;
+  cursor:pointer !important;
+  opacity:.6 !important;
+  transition:.35s !important;
+}
+
+.arkn-gallery__thumb:hover,
+.arkn-gallery__thumb.is-active{
+  opacity:1 !important;
+  transform:translateY(-2px) !important;
+  box-shadow:0 0 16px rgba(122,92,255,.6) !important;
+}
+
+.arkn-gallery__thumb img{
+  width:80px !important;
+  height:80px !important;
+  object-fit:cover !important;
+  border-radius:10px !important;
+}
+
+/* =====================================
+   CARDS
+====================================== */
+
+.arkn-image-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
+  gap:22px;
+}
+
+.arkn-card{
+  background:var(--arkn-card);
+  border-radius:18px;
+  padding:14px;
+  text-align:center;
+  border:1px solid rgba(255,255,255,.06);
+  transition:.4s;
+  font-family:"Vazirmatn",sans-serif;
+}
+
+.arkn-card:hover{
+  transform:translateY(-6px) scale(1.03);
+  box-shadow:
+    0 0 25px rgba(122,92,255,.4),
+    0 0 35px rgba(0,228,255,.25);
+}
+
+.arkn-card img{
+  width:100%;
+  border-radius:12px;
+  margin-bottom:10px;
+}
+
+.arkn-card__name{
+  font-size:14px;
+  font-weight:700;
+}
+
+/* =====================================
+   LIGHTBOX
+====================================== */
+
+.arkn-lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(5,8,20,.92);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+
+.arkn-lightbox img{
+  max-width:85%;
+  max-height:85%;
+  border-radius:16px;
+  box-shadow:0 0 60px rgba(122,92,255,.5);
+}
+
+.arkn-lightbox__close{
+  position:absolute;
+  top:30px;
+  right:40px;
+  font-size:38px;
+  color:white;
+  border:none;
+  background:none;
+  cursor:pointer;
+}
